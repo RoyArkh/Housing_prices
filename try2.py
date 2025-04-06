@@ -46,3 +46,10 @@ print("Best CV RMSE:", -grid_search.best_score_)
 best_model = grid_search.best_estimator_
 preds = best_model.predict(X_test)
 
+submission = pd.DataFrame({
+    "Id": test_df["Id"],
+    "SalePrice": preds
+})
+
+submission.to_csv("try2.csv", index=False)
+print("Submission file created: submission.csv")

@@ -38,3 +38,10 @@ print("Cross-validated RMSE:", scores.mean())
 model.fit(X_train, y)
 preds = model.predict(X_test)
 
+submission = pd.DataFrame({
+    "Id": test_df["Id"],
+    "SalePrice": preds
+})
+
+submission.to_csv("try1.csv", index=False)
+print("Submission file created: submission.csv")
